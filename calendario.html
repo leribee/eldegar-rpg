@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Eldegar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>⚔️ Eldegar</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calendario.html" class="active">Calendário</a></li>
+                <li><a href="deuses.html">Deuses</a></li>
+                <li><a href="blog.html">Blog & Anúncios</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>📅 Calendário de Eldegar</h1>
+            <p>13 meses, 30 dias cada - Acompanhe eventos, festivais e acontecimentos históricos</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Controles do Calendário -->
+        <div class="calendar-controls">
+            <button class="btn btn-primary" onclick="previousMonth()">← Mês Anterior</button>
+            <div>
+                <h2 id="current-month-year" style="margin: 0; color: var(--primary-color);">
+                    Mês 1 - Ano 1
+                </h2>
+            </div>
+            <button class="btn btn-primary" onclick="nextMonth()">Próximo Mês →</button>
+        </div>
+
+        <!-- Legenda -->
+        <div class="info-box" style="margin: 2rem 0;">
+            <h3>Legenda</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div>🎭 <strong>Festival</strong></div>
+                <div>⚔️ <strong>Evento Histórico</strong></div>
+                <div>🎂 <strong>Aniversário</strong></div>
+                <div>🌸 <strong>Primavera</strong></div>
+                <div>☀️ <strong>Verão</strong></div>
+                <div>🍂 <strong>Outono</strong></div>
+                <div>❄️ <strong>Inverno</strong></div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <strong>Fases da Lua:</strong> 🌑 Nova | 🌓 Crescente | 🌕 Cheia | 🌗 Minguante
+            </div>
+        </div>
+
+        <!-- Grade do Calendário -->
+        <div class="calendar-grid">
+            <h3 class="month-name" id="month-name">Primeiro Mês</h3>
+            
+            <!-- Cabeçalho dos dias da semana (opcional) -->
+            <div class="days-grid">
+                <!-- Os dias serão gerados pelo JavaScript -->
+            </div>
+        </div>
+
+        <!-- Eventos do Mês Selecionado -->
+        <section class="info-box" style="margin: 2rem 0;">
+            <h3>Eventos deste Mês</h3>
+            <div id="month-events">
+                <!-- Eventos serão carregados pelo JavaScript -->
+            </div>
+        </section>
+
+        <!-- Informações sobre as Estações -->
+        <section class="info-box" style="margin: 2rem 0;">
+            <h3>Estações de Eldegar</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                <div>
+                    <h4>🌸 Primavera</h4>
+                    <p>Meses 1-3: Época de renovação e plantio</p>
+                </div>
+                <div>
+                    <h4>☀️ Verão</h4>
+                    <p>Meses 4-6: Tempo de colheita e festivais</p>
+                </div>
+                <div>
+                    <h4>🍂 Outono</h4>
+                    <p>Meses 7-9: Preparação para o inverno</p>
+                </div>
+                <div>
+                    <h4>❄️ Inverno</h4>
+                    <p>Meses 10-13: Tempo de reflexão e descanso</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Eldegar RPG. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="calendario.js"></script>
+</body>
+</html>

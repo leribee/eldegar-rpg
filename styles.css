@@ -1,0 +1,585 @@
+/* Reset e Variáveis */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #8b4513;
+    --secondary-color: #d4af37;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f5f5f5;
+    --text-dark: #333;
+    --text-light: #fff;
+    --card-bg: #fff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-hover: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand h1 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), #654321);
+    color: var(--text-light);
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Map Section */
+.map-section {
+    margin: 3rem 0;
+}
+
+.map-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.map-container {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.map-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.map-container img:hover {
+    transform: scale(1.02);
+}
+
+.map-note {
+    margin-top: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Upcoming Sessions */
+.upcoming-sessions {
+    margin: 3rem 0;
+}
+
+.upcoming-sessions h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.session-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.session-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), #654321);
+    color: var(--text-light);
+    padding: 1.5rem;
+}
+
+.card-header h3 {
+    margin-bottom: 0.5rem;
+}
+
+.date-badge {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--dark-bg);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-body p {
+    margin-bottom: 0.8rem;
+}
+
+.session-desc {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.card-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background: #654321;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--dark-bg);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-whatsapp:hover {
+    background: #20BA5A;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+/* Página de Mesa */
+.mesa-header {
+    background: linear-gradient(135deg, var(--primary-color), #654321);
+    color: var(--text-light);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.mesa-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.info-box {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.info-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Personagens */
+.characters-section {
+    margin: 3rem 0;
+}
+
+.character-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.character-card.inactive {
+    opacity: 0.7;
+    border: 2px dashed #ccc;
+}
+
+.character-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.character-name {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.status-badge.active {
+    background: #4CAF50;
+    color: white;
+}
+
+.status-badge.inactive {
+    background: #999;
+    color: white;
+}
+
+.character-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--light-bg);
+    border-radius: 8px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Session Log */
+.session-log {
+    margin: 3rem 0;
+}
+
+.log-entry {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+}
+
+.log-date {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Música */
+.music-section {
+    margin: 3rem 0;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.music-item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.music-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Calendário */
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.calendar-grid {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.month-name {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.day-cell {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0.5rem;
+}
+
+.day-cell:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.day-number {
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.day-events {
+    font-size: 0.7rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+
+.day-cell.has-event {
+    background: #e3f2fd;
+    border: 2px solid var(--primary-color);
+}
+
+.moon-phase {
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+/* Deuses */
+.gods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.god-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.god-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.god-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.god-content {
+    padding: 2rem;
+}
+
+.god-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.god-subtitle {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.god-quote {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-left: 4px solid var(--secondary-color);
+    margin: 1rem 0;
+    font-style: italic;
+    color: #555;
+}
+
+.god-section {
+    margin: 1.5rem 0;
+}
+
+.god-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.symbol-icon {
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* Blog */
+.blog-posts {
+    margin: 2rem 0;
+}
+
+.blog-post {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.blog-header {
+    border-bottom: 2px solid var(--light-bg);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.blog-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-meta {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.blog-content {
+    line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .days-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.2rem;
+    }
+    
+    .day-cell {
+        padding: 0.2rem;
+        font-size: 0.8rem;
+    }
+}
