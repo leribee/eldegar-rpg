@@ -419,32 +419,34 @@ footer {
 }
 
 .day-cell {
-    aspect-ratio: 1;
+    min-height: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: var(--light-bg);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
-    padding: 0.5rem;
+    padding: 0.5rem 0.3rem;
+    position: relative;
 }
 
 .day-cell:hover {
     background: var(--secondary-color);
     transform: scale(1.05);
+    box-shadow: var(--shadow);
 }
 
 .day-number {
     font-weight: bold;
     color: var(--text-dark);
+    font-size: 1.1rem;
 }
 
 .day-events {
-    font-size: 0.7rem;
-    color: #666;
-    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
 }
 
 .day-cell.has-event {
@@ -453,7 +455,7 @@ footer {
 }
 
 .moon-phase {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-top: 0.2rem;
 }
 

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do Tempo - Eldegar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .era-section {
+            margin-bottom: 4rem;
+        }
+
+        .era-header {
+            background: linear-gradient(135deg, var(--primary-color), #654321);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .era-header h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .era-description {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        .timeline-event {
+            position: relative;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .timeline-event:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 1.5rem;
+            width: 16px;
+            height: 16px;
+            background: var(--secondary-color);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--primary-color);
+        }
+
+        .event-year {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .event-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .event-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-description {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .event-type {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .type-birth {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .type-death {
+            background: #fce4ec;
+            color: #c2185b;
+        }
+
+        .type-battle {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+
+        .type-founding {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+
+        .type-discovery {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .type-political {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .current-era-badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-left: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>⚔️ Eldegar</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="timeline.html" class="active">Linha do Tempo</a></li>
+                <li><a href="deuses.html">Deuses</a></li>
+                <li><a href="blog.html">Blog & Anúncios</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>📜 Linha do Tempo de Eldegar</h1>
+            <p>Da Era do Terror do Sangue (-310QB) até os dias atuais (49QB)</p>
+            <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+                <strong>Ano Atual: 49QB</strong>
+                <span class="current-era-badge">ERA ATUAL</span>
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Estatísticas -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="total-events">0</div>
+                <div class="stat-label">Eventos Registrados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">359</div>
+                <div class="stat-label">Anos de História</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Eras Distintas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">49QB</div>
+                <div class="stat-label">Ano Atual</div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="🔍 Buscar eventos, pessoas ou lugares...">
+            </div>
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="birth">Nascimentos</button>
+            <button class="filter-btn" data-filter="death">Mortes</button>
+            <button class="filter-btn" data-filter="battle">Batalhas</button>
+            <button class="filter-btn" data-filter="founding">Fundações</button>
+            <button class="filter-btn" data-filter="discovery">Descobertas</button>
+            <button class="filter-btn" data-filter="political">Política</button>
+        </div>
+
+        <!-- Linha do Tempo -->
+        <div class="timeline-container" id="timeline-container">
+            <!-- Será preenchido pelo JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Eldegar RPG. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="timeline.js"></script>
+</body>
+</html>
